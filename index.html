@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voci delle Rune</title>
+<meta name="description" content="Il compagno audio del libro «Le Rune»: la pronuncia dei nomi delle rune, del mito norreno e dell'iscrizione di Gallehus, con trascrizione fonetica e resa all'italiana.">
+<link rel="canonical" href="https://mastercruelty.github.io/rune-audio-guide-companion/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%239a3322'/%3E%3Cpath d='M11 5v22M11 5l10 6-10 6 10 10' stroke='%23fff8ef' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Voci delle Rune">
+<meta property="og:description" content="Il compagno audio del libro «Le Rune»: la pronuncia dei nomi delle rune, del mito norreno e dell'iscrizione di Gallehus, con trascrizione fonetica e resa all'italiana.">
+<meta property="og:url" content="https://mastercruelty.github.io/rune-audio-guide-companion/">
+<meta property="og:locale" content="it_IT">
+<style>
+@font-face{font-family:'Cinzel';src:url('fonts/cinzel-latin-500-normal.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Cinzel';src:url('fonts/cinzel-latin-700-normal.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'EB Garamond';src:url('fonts/eb-garamond-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'EB Garamond';src:url('fonts/eb-garamond-latin-ext-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1EFF;}
+@font-face{font-family:'EB Garamond';src:url('fonts/eb-garamond-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'EB Garamond';src:url('fonts/eb-garamond-latin-ext-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1EFF;}
+@font-face{font-family:'EB Garamond';src:url('fonts/eb-garamond-latin-600-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'EB Garamond';src:url('fonts/eb-garamond-latin-ext-600-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1EFF;}
+@font-face{font-family:'Noto Sans Runic';src:url('fonts/noto-sans-runic-runic-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+16A0-16FF;}
+@font-face{font-family:'Noto Sans Mono';src:url('fonts/noto-sans-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Noto Sans Mono';src:url('fonts/noto-sans-mono-latin-ext-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1EFF;}
+
+/* Layout: colonna unica da «leggio», righe-voce allineate su griglia; indice a pillole che salta alle sezioni del libro */
+:root{
+  --paper:#f8f4ea; --leaf:#fffdf7; --ink:#231e18; --soft:#62584c; --faint:#93897b; --rule:#e2d8c4;
+  --rune:#9a3322; --rune-ink:#fff8ef; --gold:#8e6f35; --wash:#f1e8d6;
+  --display:"Cinzel", "Trajan Pro", Georgia, serif; --body:"EB Garamond", Garamond, "Times New Roman", serif;
+  --runic:"Noto Sans Runic", "Segoe UI Historic", sans-serif; --mono:"Noto Sans Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#17140f; --leaf:#201c16; --ink:#efe6d6; --soft:#c2b6a3; --faint:#8f8474; --rule:#3a3329;
+  --rune:#e0795f; --rune-ink:#1a120c; --gold:#cfa75e; --wash:#2a241c; color-scheme:dark } }
+:root[data-theme="dark"]{ --paper:#17140f; --leaf:#201c16; --ink:#efe6d6; --soft:#c2b6a3; --faint:#8f8474; --rule:#3a3329;
+  --rune:#e0795f; --rune-ink:#1a120c; --gold:#cfa75e; --wash:#2a241c; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 64px}
+.wrap{max-width:860px;margin:0 auto}
+.top{padding-block:40px 24px;border-bottom:1px solid var(--rule)}
+.band{font-family:var(--runic);color:var(--gold);letter-spacing:.35em;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:clip}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,6vw,52px);letter-spacing:.04em;margin:14px 0 6px;text-wrap:balance}
+.lede{font-style:italic;color:var(--soft);font-size:20px;max-width:60ch;margin:0}
+.controls{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--paper);padding-block:14px;border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--paper)}
+.jump{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 auto;min-width:0}
+.jump a{font-family:var(--display);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--rule);background:var(--leaf);padding:6px 11px;border-radius:999px}
+.jump a:hover,.jump a:focus-visible{border-color:var(--rune);color:var(--rune);outline:none}
+#q{flex:0 1 220px;min-width:0;font:inherit;font-size:16px;padding:7px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--leaf);color:var(--ink)}
+#q:focus-visible{outline:2px solid var(--rune);outline-offset:1px}
+.key{margin:28px 0 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:4px 24px;font-size:16px;color:var(--soft)}
+.key b{font-family:var(--mono);font-weight:400;color:var(--ink);display:inline-block;min-width:3.2em}
+.key h3,.notes h3{grid-column:1/-1;font-family:var(--display);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
+.group{margin-top:44px;scroll-margin-top:90px}
+.gh h2{font-family:var(--display);font-size:22px;letter-spacing:.03em;margin:0 0 4px;color:var(--rune)}
+.gh p{margin:0 0 14px;color:var(--soft);max-width:66ch}
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.entry{display:grid;grid-template-columns:44px minmax(0,1.1fr) minmax(0,1.3fr) auto;gap:4px 16px;align-items:center;padding:10px 4px;border-bottom:1px solid var(--rule)}
+.entry.playing{background:var(--wash)}
+.glyph{font-family:var(--runic);font-size:30px;color:var(--rune);text-align:center;line-height:1}
+.glyph.empty{width:0}
+.txt,.pr{display:flex;flex-direction:column;min-width:0}
+.word{font-weight:600;font-size:20px}
+.mean{color:var(--soft);font-size:16px;font-style:italic}
+.ita{font-size:19px;letter-spacing:.02em}
+.ipa{font-family:var(--mono);font-size:14px;color:var(--faint)}
+.btns{display:flex;gap:6px;align-items:center}
+.play{font-family:var(--display);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rune);background:var(--leaf);color:var(--rune);border-radius:999px;height:36px;min-width:36px;padding:0 10px;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer}
+.play svg{width:14px;height:14px;fill:currentColor}
+.play:not(.slow){background:var(--rune);color:var(--rune-ink)}
+.play:hover{filter:brightness(1.08)}
+.play:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.play.wide{padding:0 16px}
+.insc{background:var(--leaf);border:1px solid var(--rule);border-radius:12px;padding:20px}
+.insc .runes{font-family:var(--runic);font-size:24px;color:var(--rune);letter-spacing:.12em;line-height:1.6;overflow-wrap:anywhere}
+.insc p{margin:6px 0}
+.lat{font-size:21px;font-weight:600} .ita-l{font-size:19px} .ipa-l{font-family:var(--mono);font-size:14px;color:var(--faint);overflow-wrap:anywhere} .tr{font-style:italic;color:var(--soft)}
+.notes{margin-top:52px;border-top:1px solid var(--rule);padding-top:20px;display:grid;gap:22px}
+.notes p{margin:0 0 8px;max-width:68ch}
+.notes ul{margin:0;padding-left:20px} .notes li{margin-bottom:8px}
+.notes a{color:var(--rune)}
+.hidden-by-filter{display:none}
+@media (max-width:640px){
+  .entry{grid-template-columns:36px minmax(0,1fr) auto;grid-template-areas:"g t b" "g p b"}
+  .glyph{grid-area:g;font-size:24px} .txt{grid-area:t} .pr{grid-area:p} .btns{grid-area:b;flex-direction:column}
+  #q{flex:1 1 100%}
+  .controls{position:static}
+  .group{scroll-margin-top:16px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+.book{margin:22px 0 0;padding:14px 16px;border:1px solid var(--rule);background:var(--leaf);border-radius:10px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+.book p{margin:0;font-size:17px;color:var(--soft);min-width:0;flex:1 1 280px}
+.book a{font-family:var(--display);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--rune-ink);background:var(--rune);text-decoration:none;padding:9px 14px;border-radius:999px}
+.foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);font-size:15px;color:var(--faint)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="top">
+  <div class="band" aria-hidden="true">ᚠᚢᚦᚨᚱᚲᚷᚹ ᚺᚾᛁᛃᛇᛈᛉᛊ ᛏᛒᛖᛗᛚᛜᛞᛟ ᚠᚢᚦᚨᚱᚲᚷᚹ ᚺᚾᛁᛃᛇᛈᛉᛊ</div>
+  <h1>Voci delle Rune</h1>
+  <p class="lede">Il compagno audio del libro <i>Le Rune</i>: come suonano i nomi delle rune, del mito e un'iscrizione intera. Premi il tasto rosso per ascoltare, «lento» per riascoltare con calma.</p>
+  <div class="book">
+    <p>Questa pagina accompagna il libro <i>Le Rune. Storia, cultura e significato del Futhark antico</i>: i codici QR stampati nel libro portano direttamente alle sezioni qui sotto.</p>
+    <!-- LINK AL LIBRO: quando il libro è in vendita, sostituisci # con il link Amazon e togli l'attributo hidden -->
+    <a href="#" hidden>Scopri il libro</a>
+  </div>
+</header>
+<nav class="controls" aria-label="Sezioni">
+  <div class="jump"><a href="#antiche">Futhark antico</a><a href="#giovani">Futhark giovane</a><a href="#mito">Mito e letteratura</a><a href="#iscrizione">Iscrizione</a><a href="#note">Note e fonti</a></div>
+  <label for="q" class="sr" style="position:absolute;left:-9999px">Cerca un nome</label>
+  <input id="q" type="search" placeholder="Cerca: Odino, sole, Jera…" autocomplete="off">
+</nav>
+<div class="key">
+  <h3>Come leggere la pronuncia all'italiana</h3>
+  <span><b>MAIUSC.</b> sillaba accentata</span>
+  <span><b>aa, ee</b> vocale lunga</span>
+  <span><b>th</b> come nell'inglese «thing»</span>
+  <span><b>đ</b> come nell'inglese «this»</span>
+  <span><b>ch</b> come nel tedesco «Bach»</span>
+  <span><b>gh</b> g morbida, spagnolo «daga»</span>
+  <span><b>ü, ö</b> come in tedesco</span>
+  <span><b>u, i</b> + vocale: «uomo», «ieri»</span>
+</div>
+<section id="antiche" class="group"><header class="gh"><h2>Futhark antico · 24 rune</h2><p>Nomi proto-germanici <b>ricostruiti</b> dai linguisti: nessuno li ha mai sentiti pronunciare. La pronuncia è un'ipotesi ragionata, come i nomi stessi (capitoli 5–6 del libro).</p></header><ul class="list"><li class="entry " data-q="*fehu bestiame, ricchezza fè-chu">
+  <span class="glyph" aria-hidden="true">ᚠ</span>
+  <div class="txt"><span class="word">*fehu</span><span class="mean">bestiame, ricchezza</span></div>
+  <div class="pr"><span class="ita">FÈ-chu</span><span class="ipa">[ˈfe.xu]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e01.mp3" data-rate="1" aria-label="Ascolta *fehu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e01.mp3" data-rate="0.7" aria-label="Ascolta *fehu lentamente">lento</button></div>
+</li><li class="entry " data-q="*ūruz uro ùu-ruz">
+  <span class="glyph" aria-hidden="true">ᚢ</span>
+  <div class="txt"><span class="word">*ūruz</span><span class="mean">uro</span></div>
+  <div class="pr"><span class="ita">ÙU-ruz</span><span class="ipa">[ˈuː.ruz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e02.mp3" data-rate="1" aria-label="Ascolta *ūruz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e02.mp3" data-rate="0.7" aria-label="Ascolta *ūruz lentamente">lento</button></div>
+</li><li class="entry " data-q="*þurisaz gigante thu-ri-saz">
+  <span class="glyph" aria-hidden="true">ᚦ</span>
+  <div class="txt"><span class="word">*þurisaz</span><span class="mean">gigante</span></div>
+  <div class="pr"><span class="ita">THU-ri-saz</span><span class="ipa">[ˈθu.ri.sɑz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e03.mp3" data-rate="1" aria-label="Ascolta *þurisaz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e03.mp3" data-rate="0.7" aria-label="Ascolta *þurisaz lentamente">lento</button></div>
+</li><li class="entry " data-q="*ansuz dio (degli asi) àn-suz">
+  <span class="glyph" aria-hidden="true">ᚨ</span>
+  <div class="txt"><span class="word">*ansuz</span><span class="mean">dio (degli Asi)</span></div>
+  <div class="pr"><span class="ita">ÀN-suz</span><span class="ipa">[ˈɑn.suz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e04.mp3" data-rate="1" aria-label="Ascolta *ansuz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e04.mp3" data-rate="0.7" aria-label="Ascolta *ansuz lentamente">lento</button></div>
+</li><li class="entry " data-q="*raidō cavalcata rài-đoo">
+  <span class="glyph" aria-hidden="true">ᚱ</span>
+  <div class="txt"><span class="word">*raidō</span><span class="mean">cavalcata</span></div>
+  <div class="pr"><span class="ita">RÀI-đoo</span><span class="ipa">[ˈrɑi̯.ðoː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e05.mp3" data-rate="1" aria-label="Ascolta *raidō"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e05.mp3" data-rate="0.7" aria-label="Ascolta *raidō lentamente">lento</button></div>
+</li><li class="entry " data-q="*kaunan ulcera kàu-nan">
+  <span class="glyph" aria-hidden="true">ᚲ</span>
+  <div class="txt"><span class="word">*kaunan</span><span class="mean">ulcera</span></div>
+  <div class="pr"><span class="ita">KÀU-nan</span><span class="ipa">[ˈkɑu̯.nɑn]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e06.mp3" data-rate="1" aria-label="Ascolta *kaunan"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e06.mp3" data-rate="0.7" aria-label="Ascolta *kaunan lentamente">lento</button></div>
+</li><li class="entry " data-q="*gebō dono ghè-voo">
+  <span class="glyph" aria-hidden="true">ᚷ</span>
+  <div class="txt"><span class="word">*gebō</span><span class="mean">dono</span></div>
+  <div class="pr"><span class="ita">GHÈ-voo</span><span class="ipa">[ˈɣe.βoː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e07.mp3" data-rate="1" aria-label="Ascolta *gebō"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e07.mp3" data-rate="0.7" aria-label="Ascolta *gebō lentamente">lento</button></div>
+</li><li class="entry " data-q="*wunjō gioia uùn-ioo">
+  <span class="glyph" aria-hidden="true">ᚹ</span>
+  <div class="txt"><span class="word">*wunjō</span><span class="mean">gioia</span></div>
+  <div class="pr"><span class="ita">UÙN-ioo</span><span class="ipa">[ˈwun.joː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e08.mp3" data-rate="1" aria-label="Ascolta *wunjō"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e08.mp3" data-rate="0.7" aria-label="Ascolta *wunjō lentamente">lento</button></div>
+</li><li class="entry " data-q="*hagalaz grandine chà-gha-laz">
+  <span class="glyph" aria-hidden="true">ᚺ</span>
+  <div class="txt"><span class="word">*hagalaz</span><span class="mean">grandine</span></div>
+  <div class="pr"><span class="ita">CHÀ-gha-laz</span><span class="ipa">[ˈxɑ.ɣɑ.lɑz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e09.mp3" data-rate="1" aria-label="Ascolta *hagalaz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e09.mp3" data-rate="0.7" aria-label="Ascolta *hagalaz lentamente">lento</button></div>
+</li><li class="entry " data-q="*naudiz bisogno nàu-điz">
+  <span class="glyph" aria-hidden="true">ᚾ</span>
+  <div class="txt"><span class="word">*naudiz</span><span class="mean">bisogno</span></div>
+  <div class="pr"><span class="ita">NÀU-điz</span><span class="ipa">[ˈnɑu̯.ðiz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e10.mp3" data-rate="1" aria-label="Ascolta *naudiz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e10.mp3" data-rate="0.7" aria-label="Ascolta *naudiz lentamente">lento</button></div>
+</li><li class="entry " data-q="*īsaz ghiaccio ìi-saz">
+  <span class="glyph" aria-hidden="true">ᛁ</span>
+  <div class="txt"><span class="word">*īsaz</span><span class="mean">ghiaccio</span></div>
+  <div class="pr"><span class="ita">ÌI-saz</span><span class="ipa">[ˈiː.sɑz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e11.mp3" data-rate="1" aria-label="Ascolta *īsaz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e11.mp3" data-rate="0.7" aria-label="Ascolta *īsaz lentamente">lento</button></div>
+</li><li class="entry " data-q="*jēra anno, raccolto ièe-ra">
+  <span class="glyph" aria-hidden="true">ᛃ</span>
+  <div class="txt"><span class="word">*jēra</span><span class="mean">anno, raccolto</span></div>
+  <div class="pr"><span class="ita">IÈE-ra</span><span class="ipa">[ˈjɛː.rɑ]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e12.mp3" data-rate="1" aria-label="Ascolta *jēra"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e12.mp3" data-rate="0.7" aria-label="Ascolta *jēra lentamente">lento</button></div>
+</li><li class="entry " data-q="*eihwaz tasso èich-uaz">
+  <span class="glyph" aria-hidden="true">ᛇ</span>
+  <div class="txt"><span class="word">*eihwaz</span><span class="mean">tasso</span></div>
+  <div class="pr"><span class="ita">ÈICH-uaz</span><span class="ipa">[ˈei̯x.wɑz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e13.mp3" data-rate="1" aria-label="Ascolta *eihwaz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e13.mp3" data-rate="0.7" aria-label="Ascolta *eihwaz lentamente">lento</button></div>
+</li><li class="entry " data-q="*perþō (ignoto) pèr-thoo">
+  <span class="glyph" aria-hidden="true">ᛈ</span>
+  <div class="txt"><span class="word">*perþō</span><span class="mean">(ignoto)</span></div>
+  <div class="pr"><span class="ita">PÈR-thoo</span><span class="ipa">[ˈper.θoː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e14.mp3" data-rate="1" aria-label="Ascolta *perþō"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e14.mp3" data-rate="0.7" aria-label="Ascolta *perþō lentamente">lento</button></div>
+</li><li class="entry " data-q="*algiz alce (?) àl-ghiz">
+  <span class="glyph" aria-hidden="true">ᛉ</span>
+  <div class="txt"><span class="word">*algiz</span><span class="mean">alce (?)</span></div>
+  <div class="pr"><span class="ita">ÀL-ghiz</span><span class="ipa">[ˈɑl.ɣiz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e15.mp3" data-rate="1" aria-label="Ascolta *algiz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e15.mp3" data-rate="0.7" aria-label="Ascolta *algiz lentamente">lento</button></div>
+</li><li class="entry " data-q="*sōwilō sole sòo-ui-loo">
+  <span class="glyph" aria-hidden="true">ᛊ</span>
+  <div class="txt"><span class="word">*sōwilō</span><span class="mean">sole</span></div>
+  <div class="pr"><span class="ita">SÒO-ui-loo</span><span class="ipa">[ˈsoː.wi.loː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e16.mp3" data-rate="1" aria-label="Ascolta *sōwilō"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e16.mp3" data-rate="0.7" aria-label="Ascolta *sōwilō lentamente">lento</button></div>
+</li><li class="entry " data-q="*tīwaz il dio týr tìi-uaz">
+  <span class="glyph" aria-hidden="true">ᛏ</span>
+  <div class="txt"><span class="word">*tīwaz</span><span class="mean">il dio Týr</span></div>
+  <div class="pr"><span class="ita">TÌI-uaz</span><span class="ipa">[ˈtiː.wɑz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e17.mp3" data-rate="1" aria-label="Ascolta *tīwaz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e17.mp3" data-rate="0.7" aria-label="Ascolta *tīwaz lentamente">lento</button></div>
+</li><li class="entry " data-q="*berkanan betulla bèr-ka-nan">
+  <span class="glyph" aria-hidden="true">ᛒ</span>
+  <div class="txt"><span class="word">*berkanan</span><span class="mean">betulla</span></div>
+  <div class="pr"><span class="ita">BÈR-ka-nan</span><span class="ipa">[ˈber.kɑ.nɑn]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e18.mp3" data-rate="1" aria-label="Ascolta *berkanan"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e18.mp3" data-rate="0.7" aria-label="Ascolta *berkanan lentamente">lento</button></div>
+</li><li class="entry " data-q="*ehwaz cavallo èch-uaz">
+  <span class="glyph" aria-hidden="true">ᛖ</span>
+  <div class="txt"><span class="word">*ehwaz</span><span class="mean">cavallo</span></div>
+  <div class="pr"><span class="ita">ÈCH-uaz</span><span class="ipa">[ˈex.wɑz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e19.mp3" data-rate="1" aria-label="Ascolta *ehwaz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e19.mp3" data-rate="0.7" aria-label="Ascolta *ehwaz lentamente">lento</button></div>
+</li><li class="entry " data-q="*mannaz essere umano màn-naz">
+  <span class="glyph" aria-hidden="true">ᛗ</span>
+  <div class="txt"><span class="word">*mannaz</span><span class="mean">essere umano</span></div>
+  <div class="pr"><span class="ita">MÀN-naz</span><span class="ipa">[ˈmɑn.nɑz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e20.mp3" data-rate="1" aria-label="Ascolta *mannaz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e20.mp3" data-rate="0.7" aria-label="Ascolta *mannaz lentamente">lento</button></div>
+</li><li class="entry " data-q="*laguz acqua là-ghuz">
+  <span class="glyph" aria-hidden="true">ᛚ</span>
+  <div class="txt"><span class="word">*laguz</span><span class="mean">acqua</span></div>
+  <div class="pr"><span class="ita">LÀ-ghuz</span><span class="ipa">[ˈlɑ.ɣuz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e21.mp3" data-rate="1" aria-label="Ascolta *laguz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e21.mp3" data-rate="0.7" aria-label="Ascolta *laguz lentamente">lento</button></div>
+</li><li class="entry " data-q="*ingwaz il dio ing ìn-guaz">
+  <span class="glyph" aria-hidden="true">ᛜ</span>
+  <div class="txt"><span class="word">*ingwaz</span><span class="mean">il dio Ing</span></div>
+  <div class="pr"><span class="ita">ÌN-guaz</span><span class="ipa">[ˈiŋ.ɡwɑz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e22.mp3" data-rate="1" aria-label="Ascolta *ingwaz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e22.mp3" data-rate="0.7" aria-label="Ascolta *ingwaz lentamente">lento</button></div>
+</li><li class="entry " data-q="*dagaz giorno dà-ghaz">
+  <span class="glyph" aria-hidden="true">ᛞ</span>
+  <div class="txt"><span class="word">*dagaz</span><span class="mean">giorno</span></div>
+  <div class="pr"><span class="ita">DÀ-ghaz</span><span class="ipa">[ˈdɑ.ɣɑz]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e23.mp3" data-rate="1" aria-label="Ascolta *dagaz"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e23.mp3" data-rate="0.7" aria-label="Ascolta *dagaz lentamente">lento</button></div>
+</li><li class="entry " data-q="*ōþalan eredità òo-tha-lan">
+  <span class="glyph" aria-hidden="true">ᛟ</span>
+  <div class="txt"><span class="word">*ōþalan</span><span class="mean">eredità</span></div>
+  <div class="pr"><span class="ita">ÒO-tha-lan</span><span class="ipa">[ˈoː.θɑ.lɑn]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/e24.mp3" data-rate="1" aria-label="Ascolta *ōþalan"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/e24.mp3" data-rate="0.7" aria-label="Ascolta *ōþalan lentamente">lento</button></div>
+</li></ul></section>
+<section id="giovani" class="group"><header class="gh"><h2>Futhark giovane · 16 rune</h2><p>Nomi norreni dei poemi runici scandinavi, nella pronuncia ricostruita del norreno classico (XII–XIII secolo). Qui le basi sono molto più solide (capitolo 7 e Appendice B).</p></header><ul class="list"><li class="entry " data-q="fé ricchezza fèe">
+  <span class="glyph" aria-hidden="true">ᚠ</span>
+  <div class="txt"><span class="word">fé</span><span class="mean">ricchezza</span></div>
+  <div class="pr"><span class="ita">FÈE</span><span class="ipa">[feː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y01.mp3" data-rate="1" aria-label="Ascolta fé"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y01.mp3" data-rate="0.7" aria-label="Ascolta fé lentamente">lento</button></div>
+</li><li class="entry " data-q="úr scoria, pioggerella ùur">
+  <span class="glyph" aria-hidden="true">ᚢ</span>
+  <div class="txt"><span class="word">úr</span><span class="mean">scoria, pioggerella</span></div>
+  <div class="pr"><span class="ita">ÙUR</span><span class="ipa">[uːr]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y02.mp3" data-rate="1" aria-label="Ascolta úr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y02.mp3" data-rate="0.7" aria-label="Ascolta úr lentamente">lento</button></div>
+</li><li class="entry " data-q="þurs gigante thurs">
+  <span class="glyph" aria-hidden="true">ᚦ</span>
+  <div class="txt"><span class="word">þurs</span><span class="mean">gigante</span></div>
+  <div class="pr"><span class="ita">THURS</span><span class="ipa">[θurs]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y03.mp3" data-rate="1" aria-label="Ascolta þurs"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y03.mp3" data-rate="0.7" aria-label="Ascolta þurs lentamente">lento</button></div>
+</li><li class="entry " data-q="óss dio; foce òoss">
+  <span class="glyph" aria-hidden="true">ᚬ</span>
+  <div class="txt"><span class="word">óss</span><span class="mean">dio; foce</span></div>
+  <div class="pr"><span class="ita">ÒOSS</span><span class="ipa">[oːsː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y04.mp3" data-rate="1" aria-label="Ascolta óss"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y04.mp3" data-rate="0.7" aria-label="Ascolta óss lentamente">lento</button></div>
+</li><li class="entry " data-q="reið cavalcata rèiđ">
+  <span class="glyph" aria-hidden="true">ᚱ</span>
+  <div class="txt"><span class="word">reið</span><span class="mean">cavalcata</span></div>
+  <div class="pr"><span class="ita">RÈIĐ</span><span class="ipa">[rei̯ð]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y05.mp3" data-rate="1" aria-label="Ascolta reið"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y05.mp3" data-rate="0.7" aria-label="Ascolta reið lentamente">lento</button></div>
+</li><li class="entry " data-q="kaun ulcera kàun">
+  <span class="glyph" aria-hidden="true">ᚴ</span>
+  <div class="txt"><span class="word">kaun</span><span class="mean">ulcera</span></div>
+  <div class="pr"><span class="ita">KÀUN</span><span class="ipa">[kɑu̯n]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y06.mp3" data-rate="1" aria-label="Ascolta kaun"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y06.mp3" data-rate="0.7" aria-label="Ascolta kaun lentamente">lento</button></div>
+</li><li class="entry " data-q="hagall grandine hà-ghall">
+  <span class="glyph" aria-hidden="true">ᚼ</span>
+  <div class="txt"><span class="word">hagall</span><span class="mean">grandine</span></div>
+  <div class="pr"><span class="ita">HÀ-ghall</span><span class="ipa">[ˈhɑ.ɣɑlː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y07.mp3" data-rate="1" aria-label="Ascolta hagall"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y07.mp3" data-rate="0.7" aria-label="Ascolta hagall lentamente">lento</button></div>
+</li><li class="entry " data-q="nauðr bisogno nàu-đr">
+  <span class="glyph" aria-hidden="true">ᚾ</span>
+  <div class="txt"><span class="word">nauðr</span><span class="mean">bisogno</span></div>
+  <div class="pr"><span class="ita">NÀU-đr</span><span class="ipa">[ˈnɑu̯.ðr̩]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y08.mp3" data-rate="1" aria-label="Ascolta nauðr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y08.mp3" data-rate="0.7" aria-label="Ascolta nauðr lentamente">lento</button></div>
+</li><li class="entry " data-q="íss ghiaccio ìiss">
+  <span class="glyph" aria-hidden="true">ᛁ</span>
+  <div class="txt"><span class="word">íss</span><span class="mean">ghiaccio</span></div>
+  <div class="pr"><span class="ita">ÌISS</span><span class="ipa">[iːsː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y09.mp3" data-rate="1" aria-label="Ascolta íss"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y09.mp3" data-rate="0.7" aria-label="Ascolta íss lentamente">lento</button></div>
+</li><li class="entry " data-q="ár anno buono àar">
+  <span class="glyph" aria-hidden="true">ᛅ</span>
+  <div class="txt"><span class="word">ár</span><span class="mean">anno buono</span></div>
+  <div class="pr"><span class="ita">ÀAR</span><span class="ipa">[ɑːr]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y10.mp3" data-rate="1" aria-label="Ascolta ár"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y10.mp3" data-rate="0.7" aria-label="Ascolta ár lentamente">lento</button></div>
+</li><li class="entry " data-q="sól sole sòol">
+  <span class="glyph" aria-hidden="true">ᛋ</span>
+  <div class="txt"><span class="word">sól</span><span class="mean">sole</span></div>
+  <div class="pr"><span class="ita">SÒOL</span><span class="ipa">[soːl]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y11.mp3" data-rate="1" aria-label="Ascolta sól"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y11.mp3" data-rate="0.7" aria-label="Ascolta sól lentamente">lento</button></div>
+</li><li class="entry " data-q="týr il dio týr tüür">
+  <span class="glyph" aria-hidden="true">ᛏ</span>
+  <div class="txt"><span class="word">Týr</span><span class="mean">il dio Týr</span></div>
+  <div class="pr"><span class="ita">TÜÜR</span><span class="ipa">[tyːr]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y12.mp3" data-rate="1" aria-label="Ascolta Týr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y12.mp3" data-rate="0.7" aria-label="Ascolta Týr lentamente">lento</button></div>
+</li><li class="entry " data-q="bjarkan betulla biàr-kan">
+  <span class="glyph" aria-hidden="true">ᛒ</span>
+  <div class="txt"><span class="word">bjarkan</span><span class="mean">betulla</span></div>
+  <div class="pr"><span class="ita">BIÀR-kan</span><span class="ipa">[ˈbjɑr.kɑn]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y13.mp3" data-rate="1" aria-label="Ascolta bjarkan"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y13.mp3" data-rate="0.7" aria-label="Ascolta bjarkan lentamente">lento</button></div>
+</li><li class="entry " data-q="maðr uomo mà-đr">
+  <span class="glyph" aria-hidden="true">ᛘ</span>
+  <div class="txt"><span class="word">maðr</span><span class="mean">uomo</span></div>
+  <div class="pr"><span class="ita">MÀ-đr</span><span class="ipa">[ˈmɑ.ðr̩]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y14.mp3" data-rate="1" aria-label="Ascolta maðr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y14.mp3" data-rate="0.7" aria-label="Ascolta maðr lentamente">lento</button></div>
+</li><li class="entry " data-q="lǫgr acqua lò-ghr">
+  <span class="glyph" aria-hidden="true">ᛚ</span>
+  <div class="txt"><span class="word">lǫgr</span><span class="mean">acqua</span></div>
+  <div class="pr"><span class="ita">LÒ-ghr</span><span class="ipa">[ˈlɔ.ɣr̩]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y15.mp3" data-rate="1" aria-label="Ascolta lǫgr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y15.mp3" data-rate="0.7" aria-label="Ascolta lǫgr lentamente">lento</button></div>
+</li><li class="entry " data-q="ýr tasso, arco üür">
+  <span class="glyph" aria-hidden="true">ᛦ</span>
+  <div class="txt"><span class="word">ýr</span><span class="mean">tasso, arco</span></div>
+  <div class="pr"><span class="ita">ÜÜR</span><span class="ipa">[yːr]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/y16.mp3" data-rate="1" aria-label="Ascolta ýr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/y16.mp3" data-rate="0.7" aria-label="Ascolta ýr lentamente">lento</button></div>
+</li></ul></section>
+<section id="mito" class="group"><header class="gh"><h2>Mito e letteratura</h2><p>Dèi, luoghi, poemi e autori citati nel libro, in norreno classico.</p></header><ul class="list"><li class="entry " data-q="óðinn odino òo-đinn">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Óðinn</span><span class="mean">Odino</span></div>
+  <div class="pr"><span class="ita">ÒO-đinn</span><span class="ipa">[ˈoː.ðinː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m01.mp3" data-rate="1" aria-label="Ascolta Óðinn"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m01.mp3" data-rate="0.7" aria-label="Ascolta Óðinn lentamente">lento</button></div>
+</li><li class="entry " data-q="þórr thor thòorr">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Þórr</span><span class="mean">Thor</span></div>
+  <div class="pr"><span class="ita">THÒORR</span><span class="ipa">[θoːrː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m02.mp3" data-rate="1" aria-label="Ascolta Þórr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m02.mp3" data-rate="0.7" aria-label="Ascolta Þórr lentamente">lento</button></div>
+</li><li class="entry " data-q="freyr freyr fröir">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Freyr</span><span class="mean">Freyr</span></div>
+  <div class="pr"><span class="ita">FRÖIR</span><span class="ipa">[frøy̯r]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m03.mp3" data-rate="1" aria-label="Ascolta Freyr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m03.mp3" data-rate="0.7" aria-label="Ascolta Freyr lentamente">lento</button></div>
+</li><li class="entry " data-q="freyja freyja fröi-ia">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Freyja</span><span class="mean">Freyja</span></div>
+  <div class="pr"><span class="ita">FRÖI-ia</span><span class="ipa">[ˈfrøy̯.jɑ]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m04.mp3" data-rate="1" aria-label="Ascolta Freyja"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m04.mp3" data-rate="0.7" aria-label="Ascolta Freyja lentamente">lento</button></div>
+</li><li class="entry " data-q="frigg frigg frigg">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Frigg</span><span class="mean">Frigg</span></div>
+  <div class="pr"><span class="ita">FRIGG</span><span class="ipa">[friɡː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m05.mp3" data-rate="1" aria-label="Ascolta Frigg"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m05.mp3" data-rate="0.7" aria-label="Ascolta Frigg lentamente">lento</button></div>
+</li><li class="entry " data-q="æsir gli asi èe-sir">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Æsir</span><span class="mean">gli Asi</span></div>
+  <div class="pr"><span class="ita">ÈE-sir</span><span class="ipa">[ˈɛː.sir]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m06.mp3" data-rate="1" aria-label="Ascolta Æsir"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m06.mp3" data-rate="0.7" aria-label="Ascolta Æsir lentamente">lento</button></div>
+</li><li class="entry " data-q="ásgarðr dimora degli asi àas-gar-đr">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Ásgarðr</span><span class="mean">dimora degli Asi</span></div>
+  <div class="pr"><span class="ita">ÀAS-gar-đr</span><span class="ipa">[ˈɑːs.ɡɑr.ðr̩]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m07.mp3" data-rate="1" aria-label="Ascolta Ásgarðr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m07.mp3" data-rate="0.7" aria-label="Ascolta Ásgarðr lentamente">lento</button></div>
+</li><li class="entry " data-q="miðgarðr il mondo degli uomini mìđ-gar-đr">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Miðgarðr</span><span class="mean">il mondo degli uomini</span></div>
+  <div class="pr"><span class="ita">MÌĐ-gar-đr</span><span class="ipa">[ˈmið.ɡɑr.ðr̩]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m08.mp3" data-rate="1" aria-label="Ascolta Miðgarðr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m08.mp3" data-rate="0.7" aria-label="Ascolta Miðgarðr lentamente">lento</button></div>
+</li><li class="entry " data-q="yggdrasill l&#x27;albero del mondo ügg-dra-sill">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Yggdrasill</span><span class="mean">l&#x27;albero del mondo</span></div>
+  <div class="pr"><span class="ita">ÜGG-dra-sill</span><span class="ipa">[ˈyɡː.drɑ.silː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m09.mp3" data-rate="1" aria-label="Ascolta Yggdrasill"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m09.mp3" data-rate="0.7" aria-label="Ascolta Yggdrasill lentamente">lento</button></div>
+</li><li class="entry " data-q="valhǫll la valhalla uàl-holl">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Valhǫll</span><span class="mean">la Valhalla</span></div>
+  <div class="pr"><span class="ita">UÀL-holl</span><span class="ipa">[ˈwɑl.hɔlː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m10.mp3" data-rate="1" aria-label="Ascolta Valhǫll"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m10.mp3" data-rate="0.7" aria-label="Ascolta Valhǫll lentamente">lento</button></div>
+</li><li class="entry " data-q="fenrir il lupo fenrir fèn-rir">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Fenrir</span><span class="mean">il lupo Fenrir</span></div>
+  <div class="pr"><span class="ita">FÈN-rir</span><span class="ipa">[ˈfen.rir]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m11.mp3" data-rate="1" aria-label="Ascolta Fenrir"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m11.mp3" data-rate="0.7" aria-label="Ascolta Fenrir lentamente">lento</button></div>
+</li><li class="entry " data-q="sleipnir il cavallo di odino slèip-nir">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Sleipnir</span><span class="mean">il cavallo di Odino</span></div>
+  <div class="pr"><span class="ita">SLÈIP-nir</span><span class="ipa">[ˈslei̯p.nir]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m12.mp3" data-rate="1" aria-label="Ascolta Sleipnir"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m12.mp3" data-rate="0.7" aria-label="Ascolta Sleipnir lentamente">lento</button></div>
+</li><li class="entry " data-q="ragnarǫk la fine del mondo ràgh-na-rok">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Ragnarǫk</span><span class="mean">la fine del mondo</span></div>
+  <div class="pr"><span class="ita">RÀGH-na-rok</span><span class="ipa">[ˈrɑɣ.nɑ.rɔk]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m13.mp3" data-rate="1" aria-label="Ascolta Ragnarǫk"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m13.mp3" data-rate="0.7" aria-label="Ascolta Ragnarǫk lentamente">lento</button></div>
+</li><li class="entry " data-q="urðr una norna ùr-đr">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Urðr</span><span class="mean">una Norna</span></div>
+  <div class="pr"><span class="ita">ÙR-đr</span><span class="ipa">[ˈur.ðr̩]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m14.mp3" data-rate="1" aria-label="Ascolta Urðr"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m14.mp3" data-rate="0.7" aria-label="Ascolta Urðr lentamente">lento</button></div>
+</li><li class="entry " data-q="verðandi una norna uèr-đan-di">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Verðandi</span><span class="mean">una Norna</span></div>
+  <div class="pr"><span class="ita">UÈR-đan-di</span><span class="ipa">[ˈwer.ðɑn.di]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m15.mp3" data-rate="1" aria-label="Ascolta Verðandi"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m15.mp3" data-rate="0.7" aria-label="Ascolta Verðandi lentamente">lento</button></div>
+</li><li class="entry " data-q="skuld una norna skuld">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Skuld</span><span class="mean">una Norna</span></div>
+  <div class="pr"><span class="ita">SKULD</span><span class="ipa">[skuld]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m16.mp3" data-rate="1" aria-label="Ascolta Skuld"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m16.mp3" data-rate="0.7" aria-label="Ascolta Skuld lentamente">lento</button></div>
+</li><li class="entry " data-q="jǫtunn gigante iò-tunn">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">jǫtunn</span><span class="mean">gigante</span></div>
+  <div class="pr"><span class="ita">IÒ-tunn</span><span class="ipa">[ˈjɔ.tunː]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m17.mp3" data-rate="1" aria-label="Ascolta jǫtunn"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m17.mp3" data-rate="0.7" aria-label="Ascolta jǫtunn lentamente">lento</button></div>
+</li><li class="entry " data-q="rún runa, segreto rùun">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">rún</span><span class="mean">runa, segreto</span></div>
+  <div class="pr"><span class="ita">RÙUN</span><span class="ipa">[ruːn]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m18.mp3" data-rate="1" aria-label="Ascolta rún"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m18.mp3" data-rate="0.7" aria-label="Ascolta rún lentamente">lento</button></div>
+</li><li class="entry " data-q="hávamál discorso dell&#x27;altissimo hàa-ua-maal">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Hávamál</span><span class="mean">Discorso dell&#x27;Altissimo</span></div>
+  <div class="pr"><span class="ita">HÀA-ua-maal</span><span class="ipa">[ˈhɑː.wɑ.mɑːl]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m19.mp3" data-rate="1" aria-label="Ascolta Hávamál"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m19.mp3" data-rate="0.7" aria-label="Ascolta Hávamál lentamente">lento</button></div>
+</li><li class="entry " data-q="sigrdrífumál carme di sigrdrífa sì-ghr-drii-vu-maal">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Sigrdrífumál</span><span class="mean">Carme di Sigrdrífa</span></div>
+  <div class="pr"><span class="ita">SÌ-ghr-drii-vu-maal</span><span class="ipa">[ˈsi.ɣr̩.driː.vu.mɑːl]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m20.mp3" data-rate="1" aria-label="Ascolta Sigrdrífumál"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m20.mp3" data-rate="0.7" aria-label="Ascolta Sigrdrífumál lentamente">lento</button></div>
+</li><li class="entry " data-q="rígsþula carme di ríg rìigs-thu-la">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Rígsþula</span><span class="mean">Carme di Ríg</span></div>
+  <div class="pr"><span class="ita">RÌIGS-thu-la</span><span class="ipa">[ˈriːɡs.θu.lɑ]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m21.mp3" data-rate="1" aria-label="Ascolta Rígsþula"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m21.mp3" data-rate="0.7" aria-label="Ascolta Rígsþula lentamente">lento</button></div>
+</li><li class="entry " data-q="edda edda èd-da">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Edda</span><span class="mean">Edda</span></div>
+  <div class="pr"><span class="ita">ÈD-da</span><span class="ipa">[ˈedː.dɑ]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m22.mp3" data-rate="1" aria-label="Ascolta Edda"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m22.mp3" data-rate="0.7" aria-label="Ascolta Edda lentamente">lento</button></div>
+</li><li class="entry " data-q="snorri sturluson autore dell&#x27;edda in prosa snòr-ri stùr-lu-son">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Snorri Sturluson</span><span class="mean">autore dell&#x27;Edda in prosa</span></div>
+  <div class="pr"><span class="ita">SNÒR-ri STÙR-lu-son</span><span class="ipa">[ˈsnorː.ri ˈstur.lu.son]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m23.mp3" data-rate="1" aria-label="Ascolta Snorri Sturluson"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m23.mp3" data-rate="0.7" aria-label="Ascolta Snorri Sturluson lentamente">lento</button></div>
+</li><li class="entry " data-q="heimskringla il cerchio del mondo hèims-kring-gla">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">Heimskringla</span><span class="mean">Il cerchio del mondo</span></div>
+  <div class="pr"><span class="ita">HÈIMS-kring-gla</span><span class="ipa">[ˈhei̯ms.kriŋ.ɡlɑ]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m24.mp3" data-rate="1" aria-label="Ascolta Heimskringla"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m24.mp3" data-rate="0.7" aria-label="Ascolta Heimskringla lentamente">lento</button></div>
+</li><li class="entry " data-q="dǫnsk tunga lingua danese dònsk tùng-ga">
+  <span class="glyph empty" aria-hidden="true"></span>
+  <div class="txt"><span class="word">dǫnsk tunga</span><span class="mean">lingua danese</span></div>
+  <div class="pr"><span class="ita">DÒNSK TÙNG-ga</span><span class="ipa">[dɔnsk ˈtuŋ.ɡɑ]</span></div>
+  <div class="btns"><button type="button" class="play" data-src="audio/m25.mp3" data-rate="1" aria-label="Ascolta dǫnsk tunga"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg></button><button type="button" class="play slow" data-src="audio/m25.mp3" data-rate="0.7" aria-label="Ascolta dǫnsk tunga lentamente">lento</button></div>
+</li></ul></section>
+<section id="iscrizione" class="group"><header class="gh"><h2>Un'iscrizione intera</h2><p>Il corno d'oro di Gallehus (Danimarca, c. 400): una delle frasi più antiche in una lingua germanica. Pronuncia proto-norrena ricostruita.</p></header>
+<div class="insc"><div class="runes" aria-hidden="true">ᛖᚲ : ᚺᛚᛖᚹᚨᚷᚨᛊᛏᛁᛉ : ᚺᛟᛚᛏᛁᛃᚨᛉ : ᚺᛟᚱᚾᚨ : ᛏᚨᚹᛁᛞᛟ</div>
+<p class="lat">ek hlewagastiz holtijaz horna tawido</p><p class="ita-l">ek CHLÈ-ua-ghas-tiz CHÒL-ti-iaz CHÒR-na TÀ-ui-đoo</p><p class="ipa-l">[ek ˈxle.wɑ.ɣɑs.tiz ˈxol.ti.jɑz ˈxor.nɑ ˈtɑ.wi.ðoː]</p><p class="tr">«Io, Hlewagastiz Holtijaz, feci il corno» (corno di Gallehus, c. 400)</p>
+<div class="btns"><button type="button" class="play wide" data-src="audio/i01.mp3" data-rate="1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg> Ascolta</button><button type="button" class="play slow" data-src="audio/i01.mp3" data-rate="0.7">lento</button></div></div></section>
+<section id="note" class="notes group">
+  <div><h3 style="font-family:var(--display);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Da sapere su queste registrazioni</h3>
+  <p>L'audio è <b>sintetico</b>: una voce generata al computer a partire dalla trascrizione fonetica di ogni parola. Riproduce i suoni giusti nell'ordine giusto, ma il ritmo e l'intonazione restano meccanici. Usalo per fissare i suoni, poi confrontalo con le letture degli studiosi qui sotto.</p>
+  <p>Molti islandesi leggono il norreno con la <b>pronuncia dell'islandese moderno</b>, che è diversa da quella medievale (per esempio <i>ll</i> diventa «tl» e <i>á</i> diventa «au»). Non è un errore, è una scelta di tradizione: in questa pagina e nel libro si usa la ricostruzione medievale.</p></div>
+  <div><h3 style="font-family:var(--display);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Letture di studiosi</h3>
+  <ul>
+   <li><a href="https://vimeo.com/396092962">Jackson Crawford, «Norse Gods' Names: Pronunciation and Runes»</a>: nomi degli dèi in pronuncia ricostruita, scritti in Futhark giovane. Sullo stesso canale: <a href="https://vimeo.com/430072158">lezione sulla pronuncia</a>.</li>
+   <li><a href="https://www.asnc.cam.ac.uk/spokenword/texts_on.php">Università di Cambridge, ASNC «Spoken Word»</a>: brani dell'Edda in prosa e di una saga letti da madrelingua islandesi; la saga anche in versione lenta.</li>
+   <li><a href="https://www.worldtreeproject.org/exhibits/show/oldnorse/hearingoldnorse">World-Tree Project, University College Cork</a>: raccolta ragionata di guide e registrazioni, inclusa poesia scaldica recitata.</li>
+   <li><a href="https://oldnorse.org/how-to-pronounce-old-norse/">Viking Language (J. Byock)</a>: due esempi gratuiti, tra cui la lettura della pietra runica di Gorm; gli album completi sono a pagamento.</li>
+  </ul></div>
+</section>
+<footer class="foot">
+  <p>Testi e registrazioni © dell'autore del libro <i>Le Rune</i>. Tutti i diritti riservati.</p>
+  <p>Caratteri: Cinzel, EB Garamond, Noto Sans Runic e Noto Sans Mono (SIL Open Font License). Questa pagina non usa cookie né strumenti di tracciamento.</p>
+</footer>
+</div>
+<script>
+(function(){
+  var audio = new Audio(); var current = null;
+  function stop(){ if(current){ current.classList.remove('playing'); current=null; } }
+  audio.addEventListener('ended', stop);
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('button.play'); if(!b) return;
+    stop(); audio.pause();
+    audio.src = b.getAttribute('data-src');
+    audio.playbackRate = parseFloat(b.getAttribute('data-rate')) || 1;
+    try { audio.preservesPitch = true; } catch(_e) {}
+    current = b.closest('.entry') || null; if(current) current.classList.add('playing');
+    var p = audio.play(); if(p && p.catch) p.catch(stop);
+  });
+  var q = document.getElementById('q');
+  q.addEventListener('input', function(){
+    var v = q.value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    document.querySelectorAll('.entry').forEach(function(li){
+      var t = li.getAttribute('data-q').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      li.classList.toggle('hidden-by-filter', v && t.indexOf(v) === -1);
+    });
+  });
+  if (location.hash) { var el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
+})();
+</script>
+
+</body>
+</html>
