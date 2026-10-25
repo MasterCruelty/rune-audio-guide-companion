@@ -28,7 +28,7 @@ I codici QR stampati nel libro portano a queste sezioni:
 
 ## Licenze
 
-**Testi, registrazioni e codice della pagina**: © 2026 autore del libro *Le Rune*, con licenza [Creative Commons Attribuzione - Non commerciale - Non opere derivate 4.0 Internazionale](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.it) (CC BY-NC-ND 4.0). Il testo completo è nel file `LICENSE`.
+**Testi, registrazioni e codice della pagina**: © 2026 Roberto Antoniello, con licenza [Creative Commons Attribuzione - Non commerciale - Non opere derivate 4.0 Internazionale](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.it) (CC BY-NC-ND 4.0). Il testo completo è nel file `LICENSE`.
 
 In breve, puoi:
 
